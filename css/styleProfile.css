@@ -1,0 +1,19 @@
+.photo {
+  width: 200px;
+  height: 200px;
+}
+
+.img-info {
+  display: grid;
+  padding: 10px;
+  place-content: center;
+}
+
+.transferences-data {
+  padding: 20px;
+  width: 100vw;
+}
+
+.profile-data {
+  place-content: center;
+}

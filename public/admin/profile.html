@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Profile Admin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/styleProfile.css">
+  </head>
+  <body>
+    <div class="">
+      <h1>Perfil de Administrador </h1>
+      <div class="profile-data row">
+        <div class="img-info">
+          <img src="https://picsum.photos/200/300" class="photo" alt="photo">
+        </div>
+        <div class="profile-info">
+          <p>
+            <br><b>Identificación:</b> <span id="prof_id"></span>
+            <br><b>Nombres:</b> <span id="prof_nombres"></span>
+            <br><b>Apellidos:</b> <span id="prof_apellidos"></span>
+            <br><b>Email:</b> <span id="prof_email"></span>
+            <br><b>Telefono:</b> <span id="prof_telefono"></span>
+            <br><b>Cargo:</b> <span id="prof_cargo"></span>
+            <br><b>Seccion CUN:</b> <span id="prof_cod_secc"></span>
+            <br><b>Sede CUN:</b> <span id="prof_cod_sede"></span>
+          </p>
+            <button class="btn btn-dark" data-toggle="modal" data-target="#updateModal">Actualizar</button>
+          <button onclick ="" class="btn btn-danger">Cerrar Sesion</button>
+        </div>
+      </div>
+    </div>
+
+
+    <!--Last Transferencec Assigned-->
+    <!--Current Process-->
+    <h3>Datos de Proceso Actual</h3>
+    <div class="row">
+
+      <div class="col">
+        <p>
+          <br><b>Tipo de Transferencia:</b> <span id="transf_tipo"></span>
+          <br><b>Estado:</b> <span  id="transf_estado"></span>
+          <br><b>Proceso comenzado:</b> <span id="transf_creado"></span>
+          <br><b>Codigo de Modalidad:</b> <span id="transf_cod_modalidad"></span>
+          <br><b>Codigo de Seccion:</b> <span  id="transf_cod_secc"></span>
+          <br><b>Codigo de Sede:</b> <span id="transf_cod_sede"></span>
+          <br><b>Codigo de Programa:</b> <span  id="transf_cod_programa"></span>
+          <br><b>Codigo de Plan de estudios:</b> <span  id="transf_cod_plan"></span>
+        </p>
+      </div>
+      <div class="col">
+        <h5>Archivos</h5>
+          <p><b>Carta de Tranferencia:
+            <button onclick ="" class="btn btn-info" disabled>Ver</button>
+
+          </p>
+          <p><b>Notas:</b>
+            <button onclick ="" class="btn btn-info" disabled>Ver</button>
+            <button onclick ="" class="btn btn-dark">Actualizar</button>
+          </p>
+          <p><b>Formato nmaf05:</b> <button onclick ="" class="btn btn-info" disabled>Ver</button></p>
+          <p><b>Formato nmaf06:</b> <button onclick ="" class="btn btn-info" disabled>Ver</button></p>
+          <p><b>Formato nmaf15:</b> <button onclick ="" class="btn btn-info" disabled>Ver</button></p>
+      </div>
+    </div>
+    <div class="tranference-actions col">
+      <button class="btn btn-dark" data-toggle="modal" data-target="#assignementModal">Reasignar Encargado</button>
+      <button onclick ="window.location.href='transfManagers.html'" class="btn btn-info">Ver Encargados</button>
+      <button onclick ="window.location.href='homologations.html'" class="btn btn-info" disabled>Asignar Materias Homologadas</button>
+    </div>
+
+    <div class="subjects-studied">
+      <h1>Materias Vistas por el usuario</h1>
+      <p>Adicion al sistema de materias vistas por el usuario:</p>
+      <h3>Materias Agregadas</h3>
+      <!--Subject Data-->
+      <div class="transferences-data row">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Codigo</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Creditos</th>
+              <th scope="col">Institucion</th>
+              <th scope="col">Programa</th>
+              <th scope="col">Modalidad</th>
+            </tr>
+          </thead>
+          <tbody id="subjectTransf">
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!--Update assignement Modal-->
+    <div class="modal fade" id="assignementModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Data</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Ingrese identificacion de usuario a asignar:</p>
+          <p>Identificación:
+            <input
+              type="text"
+               id="asignado"
+               size="40"
+               placeholder="C.C. 000000"
+               >
+          </p>
+          <p>Si no ingresa un numero de identificacion determinado, el sistema hara la reasignacion.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+          <button onclick="assignManager(idTestTransf)" class="btn btn-dark">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!--Transferences Data-->
+    <div class="transferences-data row">
+      <h3>Transferencias Asignadas</h3>
+      <div class="transferences-data row">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Fecha de Asignacion</th>
+              <th scope="col">Asignador</th>
+              <th scope="col">Asignado (Identificacion)</th>
+            </tr>
+          </thead>
+          <tbody id="transfAdmin">
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!--Update Modal-->
+    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Data</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="sign-user">
+            <p id='upt_form'>
+
+            </p>
+            <p>Imagen:
+              <input
+                id="upt_imagen"
+                type="file"
+                name="file"
+                required
+                >
+            </p>
+            <p>Si desea modificar su contraseña ingrese los siguientes campos:</p>
+            <p>Contraseña:
+              <input
+                type="password"
+                id="upt_password"
+                size="40"
+                placeholder="********"
+                >
+            </p>
+            <p>Confirme su contraseña:
+              <input
+                type="password"
+                id="upt_conf_password"
+                size="40"
+                placeholder="********"
+                >
+            </p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+          <button onclick="updateData(idTestAdmin)" class="btn btn-dark">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../../js/script.js"></script>
+    <script src="../../js/config.js"></script>
+    <script src="../../js/admin/profile.js"></script>
+    <script src="../../js/admin/update.js"></script>
+    <script src="../../js/admin/transference.js"></script>
+    <script src="../../js/subject/subjects.js"></script>
+    <script type="text/javascript">
+      getProfile(idTestAdmin);
+      getAdminTransf(idTestAdmin);
+      getTransference(idTestTransf);
+      getAllSubjects(idTestTransf);
+      //get last transference assigned
+    </script>
+  </body>
+</html>

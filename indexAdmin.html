@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tranference Front</title>
+     <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Transferencias CUN</h1>
+    <h3>Administradores</h3>
+    <div class="row">
+        <div class="sign-form col">
+          <h5>Resgistro de Administrador</h5>
+          <p>Identificación:
+            <input
+              type="text"
+               id="id"
+               size="40"
+               placeholder="000000"
+               >
+          </p>
+          <p>Nombre:
+            <input
+              type="text"
+              id="nombres"
+              size="40"
+              placeholder="Nombre"
+              >
+          </p>
+          <p>Apellido:
+            <input
+              type="text"
+              id="apellidos"
+              size="40"
+              placeholder="Apellido"
+              >
+          </p>
+          <p>Email:
+            <input
+              type="email"
+              id="email"
+              size="40"
+              placeholder="mail@mail.com"
+              >
+          </p>
+          <p>Telefono:
+            <input
+              type="text"
+              id="telefono"
+              size="40"
+              placeholder="000000"
+              >
+          </p>
+          <p>Cargo:
+            <select id="cargo">
+            </select>
+          </p>
+          <p>Seccion CUN:
+            <select id="cod_secc">
+            </select>
+          </p>
+          <p>Sede CUN:
+            <select id="cod_sede">
+            </select>
+          </p>
+          <p>
+            <button id="signAdmin" class="btn btn-dark">Enviar</button>
+            <button onclick ="cleanDataAdmin()" class="btn btn-danger">Borrar</button>
+          </p>
+        </div>
+
+        <div class="login-form col">
+          <h5>Login</h5>
+          Ingrese su email o su numero de identificacion:
+          <p>Identificacion:
+            <input
+              type="text"
+              id="log_id"
+              size="40"
+              placeholder="000000"
+              >
+          </p>
+          <p>Email:
+            <input
+              type="email"
+              id="log_email"
+              size="40"
+              placeholder="mail@mail.com"
+              >
+          </p>
+          <p>Password:
+            <input
+              type="password"
+              id="log_password"
+              size="40"
+              placeholder="*******"
+              required
+              >
+          </p>
+          <p>
+            <button id="loginAdmin" class="btn btn-info">Log In</button>
+            <button onclick ="cleanLoginAdmin()" class="btn btn-danger">Borrar</button>
+          </p>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/admin/login.js"></script>
+    <script src="js/admin/register.js"></script>
+  </body>
+</html>

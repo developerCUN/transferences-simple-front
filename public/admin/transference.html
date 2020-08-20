@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Transference Info</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/styleProfile.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+     crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Datos de Transferencia</h1>
+
+    <div class="">
+      <h3>Datos de Aspirante</h3>
+      <div class="profile-data row">
+        <div class="img-info">
+          <img src="https://picsum.photos/200/300" class="photo" alt="photo">
+        </div>
+        <div class="profile-info">
+          <p>
+            <br><b>Identificación:</b> <span id="prof_id"></span>
+            <br><b>Nombres:</b> <span id="prof_nombres"></span>
+            <br><b>Apellidos:</b> <span id="prof_apellidos"></span>
+            <br><b>Email:</b> <span id="prof_email"></span>
+            <br><b>Telefono:</b> <span id="prof_telefono"></span>
+            <br><b>Institucion de Origen:</b> <span id="prof_institucion_origen"></span>
+            <br><b>Programa de Origen:</b> <span id="prof_programa_origen"></span>
+          </p>
+          <button onclick ="window.location.href='userTransferences.html'" class="btn btn-dark">Ver todos los procesos</button>
+        </div>
+      </div>
+    </div>
+
+    <!--Current Process-->
+    <h3>Datos de Proceso Actual</h3>
+    <div class="row">
+
+      <div class="col">
+        <p>
+          <br><b>Tipo de Transferencia:</b> <span id="transf_tipo"></span>
+          <br><b>Estado:</b> <span  id="transf_estado"></span>
+          <br><b>Proceso comenzado:</b> <span id="transf_creado"></span>
+          <br><b>Codigo de Modalidad:</b> <span id="transf_cod_modalidad"></span>
+          <br><b>Codigo de Seccion:</b> <span  id="transf_cod_secc"></span>
+          <br><b>Codigo de Sede:</b> <span id="transf_cod_sede"></span>
+          <br><b>Codigo de Programa:</b> <span  id="transf_cod_programa"></span>
+          <br><b>Codigo de Plan de estudios:</b> <span  id="transf_cod_plan"></span>
+        </p>
+      </div>
+      <div class="col">
+        <h5>Archivos</h5>
+          <p><b>Carta de Tranferencia:
+            <button onclick ="" class="btn btn-info" disabled>Ver</button>
+
+          </p>
+          <p><b>Notas:</b>
+            <button onclick ="" class="btn btn-info" disabled>Ver</button>
+            <button onclick ="" class="btn btn-dark">Actualizar</button>
+          </p>
+          <p><b>Formato nmaf05:</b> <button onclick ="" class="btn btn-info" disabled>Ver</button></p>
+          <p><b>Formato nmaf06:</b> <button onclick ="" class="btn btn-info" disabled>Ver</button></p>
+          <p><b>Formato nmaf15:</b> <button onclick ="" class="btn btn-info" disabled>Ver</button></p>
+      </div>
+    </div>
+    <div class="tranference-actions col">
+      <button class="btn btn-dark" data-toggle="modal" data-target="#assignementModal">Reasignar Encargado</button>
+      <button onclick ="window.location.href='transfManagers.html'" class="btn btn-info">Ver Encargados</button>
+      <button onclick ="window.location.href='../subjects/subjects.html'" class="btn btn-info" >Adicionar Materias Vistas</button>
+      <button onclick ="window.location.href='homologations.html'" class="btn btn-info">Asignar Materias Homologadas</button>
+    </div>
+
+    <!--Update assignement Modal-->
+    <div class="modal fade" id="assignementModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Data</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Ingrese identificacion de usuario a asignar:</p>
+          <p>Identificación:
+            <input
+              type="text"
+               id="asignado"
+               size="40"
+               placeholder="C.C. 000000"
+               >
+          </p>
+          <p>Si no ingresa un numero de identificacion determinado, el sistema hara la reasignacion.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+          <button onclick="assignManager(idTestTransf)" class="btn btn-dark">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../../js/script.js"></script>
+    <script src="../../js/config.js"></script>
+    <script src="../../js/user/profile.js"></script>
+    <script src="../../js/admin/transference.js"></script>
+    <script type="text/javascript">
+      getProfile(idTestUser);
+      getTransference(idTestTransf);
+    </script>
+  </body>
+</html>
